@@ -32,11 +32,16 @@ int main(int argc, char *argv[]){
         printf("Must pass a valid input file.\n");
         return 0;
     }
+
     FILE* input = fopen(argv[1], "r");
+    if( input == NULL ){
+        printf("Must pass a valid input file.\n");
+        return 0;
+    }
 
    char *data = NULL;
-
    uint32_t n_chars = read_input(input, &data);
+
    printf("Part 1: %d\n", get_sum(data, n_chars, 1) );
    printf("Part 2: %d\n", get_sum(data, n_chars, n_chars/2) );
 
